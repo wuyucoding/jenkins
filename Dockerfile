@@ -1,12 +1,9 @@
-FROM centos:7
+FROM java:openjdk-8u111-jre
 
 WORKDIR /usr/local
 
-COPY ./jdk-11.0.23_linux-x64_bin.tar.gz /usr/local
 COPY ./test1-1.0.0.jar  /usr/local
 
-RUN cd /usr/local \ && tar -zxvf ./jdk-11.0.23_linux-x64_bin.tar.gz
-
-ENV PATH=&PATH:/usr/local/jdk-11.0.23/bin
+RUN cd /usr/local 
 
 ENTRYPOINT ["java", "-jar", "test1-1.0.0.jar"]
